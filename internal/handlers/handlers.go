@@ -13,6 +13,11 @@ import (
 
 func GetIndexPage(w http.ResponseWriter, r *http.Request) {
 
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
 	htmlContent, err := os.ReadFile("index.html")
 
 	if err != nil {
