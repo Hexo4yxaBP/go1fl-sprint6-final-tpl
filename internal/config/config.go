@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"time"
 )
@@ -17,6 +18,8 @@ type serverConfig struct {
 var Server serverConfig
 
 func Load(filename string) error {
+
+	fmt.Println(os.Getwd())
 
 	cfgFile, err := os.ReadFile(filename)
 	if err != nil {
