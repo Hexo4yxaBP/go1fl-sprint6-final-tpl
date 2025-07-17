@@ -1,0 +1,4 @@
+cmd/server
+firstfloortest
+go-autotests/
+.tools/
