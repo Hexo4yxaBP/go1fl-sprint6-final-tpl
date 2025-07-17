@@ -29,6 +29,7 @@ func GetIndexPage(w http.ResponseWriter, r *http.Request) {
 
 	htmlContent, err := os.ReadFile(path)
 
+	//автотест не проходит при обработке ошибки ниже, хотя локально всё выполняется корректно
 	/*if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
