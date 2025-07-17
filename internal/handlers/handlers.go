@@ -13,6 +13,8 @@ import (
 
 func GetIndexPage(w http.ResponseWriter, r *http.Request) {
 
+	w.Header().Set("Content-Type", "text/html")
+
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
@@ -64,7 +66,7 @@ func PostFileForm(w http.ResponseWriter, r *http.Request) {
 	convertedData := service.MorseConvert(string(formFileData))
 	os.WriteFile(time.Now().UTC().String()+filepath.Ext(formFileHeader.Filename), []byte(convertedData), 0755)
 
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusOK)
 	_, err = w.Write([]byte(convertedData))
 
