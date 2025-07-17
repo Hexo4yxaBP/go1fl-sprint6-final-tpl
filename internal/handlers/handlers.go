@@ -18,7 +18,14 @@ func GetIndexPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	htmlContent, err := os.ReadFile("index.html")
+	path, err := filepath.Abs("./../index.html")
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	htmlContent, err := os.ReadFile(path)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
