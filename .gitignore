@@ -2,3 +2,5 @@ cmd/server
 firstfloortest
 go-autotests/
 .tools/
+cmd/cmd
+*.exe
